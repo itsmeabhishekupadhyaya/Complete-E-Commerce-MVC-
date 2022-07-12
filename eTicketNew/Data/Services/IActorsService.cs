@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 namespace eTicketNew.Data.Services
 {
-   public interface IActorsService
+   public interface IActorsService :IEntityBaseRepository<Actor>
     {
-        public  Task<IEnumerable<Actor>> GetAll();
-        public Actor GetById(int id);
+        //public  Task<IEnumerable<Actor>> GetAllAsync();
+        //public  Task <Actor> GetByIdAsync(int id);
 
-        public void Add(Actor actor);
-        public Actor Update(int id, Actor newactor);
+        //public Task AddAsync(Actor actor);
+        //public Task<Actor> UpdateAsync(int id, Actor newactor);
 
-        public void Delete(int id);
+        //public Task DeleteAsync(int id);
 
     }
 }
