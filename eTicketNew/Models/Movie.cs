@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace eTicketNew.Models
 {
-    public class Movie
+    public class Movie : IEntityBase
     {   [Key]
         public int Id { get; set; }
         public string Name { get; set; }
