@@ -1,6 +1,7 @@
 ﻿using eTicketNew.Data;
 using eTicketNew.Data.Services;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -35,6 +36,18 @@ namespace eTicketNew.Controllers
                 return View("NotFound");
             }
             return View(moviedetails);
+        }
+
+
+        public async Task<IActionResult> Create()
+        {
+            var moviedata = await _service.GetMovieDropdownValue();
+
+            ViewBag.Cinemas = new SelectList(moviedata.Cinemas, "Id", "Name");
+            ViewBag.Producers = new SelectList(moviedata.Producers, "Id", "FullName");
+            ViewBag.Actors = new SelectList(moviedata.Actors, "Id", "FullName");
+
+            return  View();
         }
     }
 }

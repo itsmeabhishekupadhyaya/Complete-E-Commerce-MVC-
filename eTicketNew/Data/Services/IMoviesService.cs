@@ -1,4 +1,5 @@
-﻿using eTicketNew.Models;
+﻿using eTicketNew.Data.ViewModel;
+using eTicketNew.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,5 +10,7 @@ namespace eTicketNew.Data.Services
    public interface IMoviesService : IEntityBaseRepository<Movie>
     {
         public Task<Movie> GetMoviesByIdAsync(int id);
+
+      public   Task<NewMovieDropdownVM> GetMovieDropdownValue();
     }
 }
